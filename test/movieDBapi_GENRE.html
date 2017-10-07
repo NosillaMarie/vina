@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MovieDB API</title>
+
+	<!-- JQUERY CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- MOMENT.JS CDN -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+<body style="font-family: sans-serif;">
+
+	<img style="width: 250px" src="https://www.themoviedb.org/assets/static_cache/9b3f9c24d9fd5f297ae433eb33d93514/images/v4/logos/408x161-powered-by-rectangle-green.png">
+
+	<br><br>
+
+	<hr>
+
+	<h3 style="display:inline;">Select Genre:</h3>
+	<br><br>
+
+	<select></select>
+
+	<br><br>
+
+	<button id="search" style="background-color: #01d277; border-radius: 5px; color: white; font-size: 24px">Get Movies!</button>
+
+	<div id="results"></div>
+
+	<script>
+
+		$(document).ready(function() {//when loaded, send get req for genre API to populate dropdown
+
+			var queryURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=3d866c05691ba06f9fa697f8e8c9e838&language=en-US";
+
+			  $.ajax({
+		      url: queryURL,
+		      method: "GET"
+		    }).done(function(response) {
+		    	var genres = response.genres;
+		    	for (i = 0; i < genres.length; i++) {
+
+			        $('select').append(
+
+			        	"<option value='" + genres[i].id + "'>" + genres[i].name + "</option>"
+			        );
+			    };
+   			});
+		});
+		
+		var queryLimit = 5;
+		var today = moment().format('YYYY-MM-DD');
+
+		console.log("Today's Date: " + today);
+
+		//query API
+		$('#search').click(function(){
+			event.preventDefault();
+			 $('#results').empty();//empty div for new results
+			 var genreCode = $('select').val();//capture genre code
+
+			var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3d866c05691ba06f9fa697f8e8c9e838&language=en-US&region=US&sort_by=release_date.asc&include_video=false&page=1&primary_release_date.gte=" + today + "&with_genres=" + genreCode;
+
+			$.ajax({
+		      url: queryURL,
+		      method: "GET"
+		    }).done(function(response) {
+		    	var movies = response.results; 
+
+		    	for (i = 0; i < movies.length; i++) {
+
+			    	var posterURL = "https://image.tmdb.org/t/p/w640" + movies[i].poster_path;
+
+			        $('#results').append(
+
+			        	"<ul style='list-style-type: none'><li>Movie ID: " +
+			        	movies[i].id + "</li><li>Movie Title: " +
+			        	movies[i].title + "</li><li>Release Date: " +
+			        	movies[i].release_date + "</li><li> <img style='width: 250px; height: auto' src='" +
+			        	posterURL + "'></li><li>Overview:<br>" +
+			        	movies[i].overview + "</li></ul><hr>"
+
+			        );
+			    };
+   			});
+		});
+
+	</script>
+
+</body>
+</html>
