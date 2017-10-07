@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MovieDB API</title>
+
+	<!-- JQUERY CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<img style="width: 250px" src="https://www.themoviedb.org/assets/static_cache/9b3f9c24d9fd5f297ae433eb33d93514/images/v4/logos/408x161-powered-by-rectangle-green.png">
+
+	<br><br>
+
+	<h2 style="display:inline;">Enter MovieDB ID</h2>
+	<br><br>
+	<form>
+		<input id="searchInput" type="TEXT" name="search" placeholder="Movie ID ..."></input>
+	</form>
+
+	<br>
+
+	<button id="search" style="background-color: #01d277; border-radius: 5px; color: white; font-size: 24px">Search!</button>
+
+	<br><br>
+
+	<hr>
+
+	<div id="results"></div>
+
+	<script>
+		
+		var movieID = 0;
+
+		//query API
+		$('#search').click(function(){
+			event.preventDefault();
+			movieId = $('#searchInput').val().trim();
+			$('#results').empty();//empty div for new results
+
+			var queryURL = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=3d866c05691ba06f9fa697f8e8c9e838&language=en-US";
+
+			if (movieId === ''){
+				$('#results').append('<h2>No ID Entered</h2>');
+			} else {
+
+			$.ajax({
+		      url: queryURL,
+		      method: "GET"
+		    }).done(function(response) {
+
+			    	var posterURL = "https://image.tmdb.org/t/p/w640" + response.poster_path;
+
+			        $('#results').append(
+
+			        	"<ul style='list-style-type: none'><li>Movie ID: " +
+			        	response.id + "</li><li>Movie Title: " +
+			        	response.title + "</li><li>Release Date: " +
+			        	response.release_date + "</li><li> <img style='width: 250px; height: auto' src='" +
+			        	posterURL + "'></li><li>Overview:<br>" +
+			        	response.overview + "</li></ul><hr>"
+
+			        );
+   			});
+		  };
+		});
+
+	</script>
+
+</body>
+</html>
