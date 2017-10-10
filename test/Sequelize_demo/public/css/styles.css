@@ -1,0 +1,48 @@
+.user-list {
+  margin-top: 75px;
+}
+
+.list-group-item {
+  height: auto;
+  line-height: 2;
+}
+
+input.new-user {
+  width: 75%;
+  height: auto;
+  margin-top: 25px;
+  margin-right: 25px;
+}
+
+.list-group-item.new-user {
+  height: auto;
+}
+
+input.new-user:focus {
+  outline: none;
+}
+
+#submit {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+select {
+  display: block;
+}
+
+#usersTable {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+#usersTable td, #usersTable th {
+  border: 1px solid black;
+  padding: 3px;
+}
+
