@@ -12,12 +12,8 @@ $(document).ready(function() {
 
         "<tr><td>" + table[i].email + "</td>" +
          "<td>" + table[i].topGenre + "</td>" +
-<<<<<<< HEAD
          "<td>" + table[i].secondGenre + "</td>" +
          "<td>" + "FIREBASE ID" + "</td>"
-=======
-         "<td>" + table[i].secondGenre + "</td>"
->>>>>>> master
         )
     }
   };
@@ -43,11 +39,7 @@ $(document).ready(function() {
 
               $('select').append(
 
-<<<<<<< HEAD
                 "<option value='" + genres[i].id + "'>" + genres[i].name + "</option>"
-=======
-                "<option value='" + genres[i].name + "'>" + genres[i].name + "</option>"
->>>>>>> master
               );
           };
         });
