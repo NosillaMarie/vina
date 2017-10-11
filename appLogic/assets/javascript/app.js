@@ -1,19 +1,25 @@
 var quizlength = 8;
 var userAnswers = [];
-var action = 0;
-var adventure =0;
-var thriller = 0;
-var horror = 0;
-var romantic = 0;
-var comedy = 0;
-var documentary = 0;
-var scifi = 0;
-var fantasy = 0;
+scores = [
+{name:"action", score:0},
+{name:"adventure", score:0},
+{name:"thriller", score:0},
+{name:"horror", score:0},
+{name:"romantic", score:0},
+{name:"comedy", score:0},
+{name:"documentary", score:0},
+{name:"scifi", score:0},
+{name:"fantasy", score:0},
+{name:"drama", score:0}
+]
+var topGenre;
+var secondGenre;
 var questionNumber = 0;
 
+
     function checkQuiz() {
-    	//This function gets all the values of the radio button and places those values in an array userAnswers
-    	//After this function runs it then runs the functions that checks the answers, and increments the appropriate genre tally.
+      //This function gets all the values of the radio button and places those values in an array userAnswers
+      //After this function runs it then runs the functions that checks the answers, and increments the appropriate genre tally.
 
         var radio_check_val = "";
         for(i=1; i<(quizlength+1); i++){
@@ -32,240 +38,189 @@ var questionNumber = 0;
 
         checkAnswers();
     }
+
     function checkAnswers() {
-    	//this function checks the user submitted answers array and adds points to specific genres based on the user input.
-      console.log("quiz length is "+ quizlength);
-      console.log("Made it to check answers");
+      //this function checks the user submitted answers array and adds points to specific genres based on the user input.
       var question = 1;
     for(i =0; i<quizlength; i++){
-      console.log("Made it to for loop");
-      console.log("question is equal to"+ question);
       if(question === 1){
         var statement = userAnswers[i];
         question++;
-        console.log("made it to if statement");
-        console.log("statement is equal to "+statement);
         switch(statement){
           case 'A':
-            fantasy += 1;
-            console.log("User selected A");
+            scores[8].score += 1;
             break;
           case 'B':
-            action += 1;
-            console.log("User selected B");
+            scores[0].score += 1;
             break;
           case 'C':
-            fantasy += 1;
-            console.log("User selected C");
+            scores[8].score += 1;
             break;
           case 'D':
-            thriller += 1;
-            console.log("User selected D");
+            scores[2].score += 1;
             break;
           case 'E':
-            documentary += 1;
-            console.log("User selected E");
+            scores[6].score += 1;
             break;
         }
       }
        else if(question === 2){
-        console.log("block 2");
         switch(statement){
           case 'A':
-            drama += 2;
-            console.log("User selected A");
+            scores[9].score += 2;
             break;
           case 'B':
-            fantasy += 1;
-            action += 2;
-            console.log("User selected B");
+            scores[8].score += 1;
+            scores[0].score += 2;
             break;
           case 'C':
-            fantasy += 2;
-            drama += 1;
-            console.log("User selected C");
+            scores[8].score += 2;
+            scores[9].score += 1;
             break;
           case 'D':
-            scifi += 1;
-            console.log("User selected D");
+            scores[7].score += 1;
             break;
           case 'E':
-            action += 1;
-            console.log("User selected E");
+            scores[0].score += 1;
             break;
         }
         question++;
         
       }
        else if(question === 3){
-        console.log("block 3");
         switch(statement){
           case 'A':
-            action += 3;
-            console.log("User selected A");
+            scores[0].score += 3;
             break;
           case 'B':
-            adventure += 3;
-            console.log("User selected B");
+            scores[1].score += 3;
             break;
           case 'C':
-            romantic += 3;
-            console.log("User selected C");
+            scores[4].score += 3;
             break;
           case 'D':
-            thriller += 3;
-            console.log("User selected D");
+            scores[2].score += 3;
             break;
           case 'E':
-            comedy += 3;
-            console.log("User selected E");
+            scores[5].score += 3;
             break;
         }
         question++;
         
       }
        else if(question === 4){
-        console.log("block 4");
         switch(statement){
           case 'A':
-            comedy += 2;
-            drama += 2;
-            console.log("User selected A");
+            scores[5].score += 2;
+            scores[9].score += 2;
             break;
           case 'B':
-            drama += 2;
-            console.log("User selected B");
+            scores[9].score += 2;
             break;
           case 'C':
-            romantic += 3;
-            console.log("User selected C");
+            scores[4].score += 3;
             break;
           case 'D':
-            thriller += 3;
-            console.log("User selected D");
+            scores[2].score += 3;
             break;
           case 'E':
-            documentary += 1;
-            console.log("User selected E");
+            scores[6].score += 1;
             break;
         }
         question++;
         
       }
        else if(question === 5){
-        console.log("block 5");
         switch(statement){
           case 'A':
-            action += 3;
-            console.log("User selected A");
+            scores[0].score += 3;
             break;
           case 'B':
-            drama += 3;
-            console.log("User selected B");
+            scores[9].score += 3;
             break;
           case 'C':
-            documentary += 1;
-            adventure += 2;
-            console.log("User selected C");
+            scores[6].score += 1;
+            scores[1].score += 2;
             break;
           case 'D':
-            action += 3;
-            console.log("User selected D");
+            scores[0].score += 3;
             break;
           case 'E':
-            drama += 2;
-            documentary += 2;
-            console.log("User selected E");
+            scores[9].score += 2;
+            scores[6].score += 2;
             break;
         }
         question++;
         
       }
        else if(question === 6){
-        console.log("block 6");
         switch(statement){
           case 'A':
-            adventure += 3;
-            action += 1;
-            console.log("User selected A");
+            scores[1].score += 3;
+            scores[0].score += 1;
             break;
           case 'B':
-            action += 3;
-            adventure += 1;
-            console.log("User selected B");
+            scores[0].score += 3;
+            scores[1].score += 1;
             break;
           case 'C':
-            drama += 2;
-            romantic += 3;
-            comedy += 1;
-            console.log("User selected C");
+            scores[9].score += 2;
+            scores[4].score += 3;
+            scores[5].score += 1;
             break;
           case 'D':
-            documentary += 3;
-            drama += 1;
-            console.log("User selected D");
+            scores[6].score += 3;
+            scores[9].score += 1;
             break;
           case 'E':
-            comedy += 4;
-            console.log("User selected E");
+            scores[5].score += 4;
             break;
         }
         question++;
         
       }
        else if(question === 7){
-        console.log("block 7");
         switch(statement){
           case 'A':
-            scifi += 3;
-            fantasy += 3;
-            console.log("User selected A");
+            scores[7].score += 3;
+            scores[8].score += 3;
             break;
           case 'B':
-            fantasy += 3;
-            adventure += 3;
-            console.log("User selected B");
+            scores[8].score += 3;
+            scores[1].score += 3;
             break;
           case 'C':
-            action += 3;
-            adventure += 3;
-            console.log("User selected C");
+            scores[0].score += 3;
+            scores[1].score += 3;
             break;
           case 'D':
-            documentary += 3;
-            drama += 1;
-            console.log("User selected D");
+            scores[6].score += 3;
+            scores[9].score += 1;
             break;
           case 'E':
-            romantic += 3;
-            drama += 1;
-            console.log("User selected E");
+            scores[4].score += 3;
+            scores[9].score += 1;
             break;
         }
+      }
        else if(question === 8){
-        console.log("block 3");
         switch(statement){
           case 'A':
-            action += 1;
-            console.log("User selected A");
+            scores[0].score += 1;
             break;
           case 'B':
-            adventure += 1;
-            console.log("User selected B");
+            scores[1].score += 1;
             break;
           case 'C':
-            drama += 1;
-            console.log("User selected C");
+            scores[9].score += 1;
             break;
           case 'D':
-            fantasy += 1;
-            scifi += 3;
-            console.log("User selected D");
+            scores[8].score += 1;
+            scores[7].score += 3;
             break;
           case 'E':
-            documentary += 2;
-            drama += 1;
-            console.log("User selected E");
+            scores[6].score += 2;
+            scores[9].score += 1;
             break;
         }
         question++;
@@ -275,7 +230,113 @@ var questionNumber = 0;
         console.log("Made it to else");
       }
     }
+    tallyGenres();
 }
 
+    function tallyGenres(){
 
+      for(i=0; i<scores.length; i++){
+        console.log(scores[i].name + " genre has score of "+ scores[i].score);
+      }
+      for(i=0; i<scores.length; i++){
+        console.log("printing arrayCopy now "+ scores[i].name);
+      }
+      scores.sort(function(a, b) { 
+     return a.score - b.score;
+    });
+            for(i=0; i<scores.length; i++){
+        console.log("printing scores after sort now "+ scores[i].name);
+      }
+      console.log(scores[0].name + " genre has score of "+ scores[0].score + " at pos 0");
+      console.log(scores[8].name + " genre has score of "+ scores[8].score + " at pos 8");
+      console.log(scores[9].name + " genre has score of "+ scores[9].score + " at pos 9");
+      tallyTopGenre();
+      tallySecondGenre();
+
+    }
+    function tallyTopGenre(){
+      switch(scores[9].name){
+          case 'action':
+      topGenre = 28;
+            break;
+          case 'adventure':
+      topGenre = 12;
+            break;
+          case 'thriller':
+      topGenre = 53;
+            break;
+          case 'horror':
+      topGenre = 27;
+            break;
+          case 'romantic':
+      topGenre = 10749;
+            break;
+          case 'comedy':
+      topGenre = 35;
+            break;
+          case 'documentary':
+      topGenre = 99;
+            break;
+          case 'scifi':
+      topGenre = 878;
+            break;
+          case 'fantasy':
+      topGenre = 14;
+            break;
+          case 'drama':
+      topGenre = 18;
+            break;
+        }
+    }
+
+    function tallySecondGenre(){
+      switch(scores[8].name){
+          case 'action':
+      secondGenre = 28;
+            break;
+          case 'adventure':
+      secondGenre = 12;
+            break;
+          case 'thriller':
+      secondGenre = 53;
+            break;
+          case 'horror':
+      secondGenre = 27;
+            break;
+          case 'romantic':
+      secondGenre = 10749;
+            break;
+          case 'comedy':
+      secondGenre = 35;
+            break;
+          case 'documentary':
+      secondGenre = 99;
+            break;
+          case 'scifi':
+      secondGenre = 878;
+            break;
+          case 'fantasy':
+      secondGenre = 14;
+            break;
+          case 'drama':
+      secondGenre = 18;
+            break;
+        }
+    }
+
+    function createUser(){
+      
+      var newUser = {
+        email: "asdf@fake.net",
+        topGenre: topGenre,
+        secondGenre: secondGenre,
+        firebaseID: 3453
+      };
+      $.post("/api/add", newUser)
+      .done(function() {
+        $email.val("");
+        $('#user-pass').val("");
+        location.reload();
+      });
+    }
 
