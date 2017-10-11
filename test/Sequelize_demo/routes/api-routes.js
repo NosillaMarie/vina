@@ -24,7 +24,8 @@ module.exports = function(app) {
     db.Users.create({
       email: req.body.email,
       topGenre: req.body.topGenre,
-      secondGenre: req.body.secondGenre
+      secondGenre: req.body.secondGenre,
+      firebase_ID: "example ID"
     }).then(function(results) {
       // `results` here would be the newly created chirp
       res.redirect("/");
