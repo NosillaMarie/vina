@@ -235,21 +235,10 @@ var questionNumber = 0;
 
     function tallyGenres(){
 
-      for(i=0; i<scores.length; i++){
-        console.log(scores[i].name + " genre has score of "+ scores[i].score);
-      }
-      for(i=0; i<scores.length; i++){
-        console.log("printing arrayCopy now "+ scores[i].name);
-      }
-      scores.sort(function(a, b) { 
+    scores.sort(function(a, b) { 
      return a.score - b.score;
     });
-            for(i=0; i<scores.length; i++){
-        console.log("printing scores after sort now "+ scores[i].name);
-      }
-      console.log(scores[0].name + " genre has score of "+ scores[0].score + " at pos 0");
-      console.log(scores[8].name + " genre has score of "+ scores[8].score + " at pos 8");
-      console.log(scores[9].name + " genre has score of "+ scores[9].score + " at pos 9");
+
       tallyTopGenre();
       tallySecondGenre();
 
