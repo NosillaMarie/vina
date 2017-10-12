@@ -46,9 +46,8 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="container">
-                    <ul class="nav navbar-nav navbar-right">
-                        <!--
+                <!--                <div class="container">-->
+                <ul class="nav navbar-nav navbar-right">
                     <li>
                         <p class="navbar-text">Already have an account?</p>
                     </li>
@@ -60,14 +59,14 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         Please Login
-                                        <form>
+                                        <form class="form" role="form" method="GET" action="/survey" accept-charset="UTF-8" id="login-nav">
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                                <input type="email" class="form-control" id="txtEmail" placeholder="Email address" required>
+                                                <input type="email" class="form-control" id="logEmail" placeholder="Email address" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                <input type="password" class="form-control" id="txtPassword" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="logPassword" placeholder="Password" required>
                                                 <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                             </div>
                                             <div class="form-group">
@@ -93,7 +92,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel" style="text align: center">Register for your Movie Matches</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Register for your Movie Matches</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -111,23 +110,24 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                    <button type="button" id="closeBtn" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                                     <button type="button" id="btnSignUp" class="btn btn-primary btn-sm">Save & Continue</button>
                                 </div>
                             </div>
                         </div>
                     </div>
--->
 
 
+                    <!--
                         <input id="txtEmail" type="email" placeholder="Email">
                         <input id="txtPassword" type="password" placeholder="Password">
                         <button id="btnLogin" class="btn btn-primary">Log In</button>
                         <button id="btnSignUp" class="btn btn-primary">Sign Up</button>
                         <button id="btnLogout" class="btn btn-warning hide">Log out</button>
+-->
 
-                    </ul>
-                </div>
+                </ul>
+                <!--                </div>-->
             </div>
             <!-- /.navbar-collapse -->
         </div>
