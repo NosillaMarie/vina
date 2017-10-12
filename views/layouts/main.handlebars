@@ -46,7 +46,9 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--
                     <li>
                         <p class="navbar-text">Already have an account?</p>
                     </li>
@@ -58,7 +60,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         Please Login
-                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <form>
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                                                 <input type="email" class="form-control" id="txtEmail" placeholder="Email address" required>
@@ -115,7 +117,17 @@
                             </div>
                         </div>
                     </div>
-                </ul>
+-->
+
+
+                        <input id="txtEmail" type="email" placeholder="Email">
+                        <input id="txtPassword" type="password" placeholder="Password">
+                        <button id="btnLogin" class="btn btn-action">Log In</button>
+                        <button id="btnSignUp" class="btn btn-secondary">Sign Up</button>
+                        <button id="btnLogout" class="btn btn-action hide">Log out</button>
+
+                    </ul>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
