@@ -12,7 +12,8 @@ $(document).ready(function() {
 
         "<tr><td>" + table[i].email + "</td>" +
          "<td>" + table[i].topGenre + "</td>" +
-         "<td>" + table[i].secondGenre + "</td>"
+         "<td>" + table[i].secondGenre + "</td>" +
+         "<td>" + "FIREBASE ID" + "</td>"
         )
     }
   };
@@ -38,7 +39,7 @@ $(document).ready(function() {
 
               $('select').append(
 
-                "<option value='" + genres[i].name + "'>" + genres[i].name + "</option>"
+                "<option value='" + genres[i].id + "'>" + genres[i].name + "</option>"
               );
           };
         });

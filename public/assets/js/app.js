@@ -57,3 +57,22 @@
 
 
 }());
+
+$(document).ready(function () {
+
+    var today = moment().format('YYYY-MM-DD');
+    var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3d866c05691ba06f9fa697f8e8c9e838&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + today;
+    var imgIDs = [$('#img1'), $('#img2'), $('#img3'), $('#img4'), $('#img5')];
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function (response) {
+        var movies = response.results;
+        for (i = 0; i < 5; i++) {
+            imgIDs[i].attr("src", "https://image.tmdb.org/t/p/w640" + movies[i].poster_path);
+        };
+
+    });
+
+});
