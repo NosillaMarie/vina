@@ -21,6 +21,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
+        uid: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
@@ -30,5 +37,7 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: DataTypes.NOW
         }
     });
+
     return Users;
+
 };
