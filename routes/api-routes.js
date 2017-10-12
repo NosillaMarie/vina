@@ -5,6 +5,13 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
         res.render("index");
     });
+    app.get("/survey", function (req, res) {
+        res.render("survey");
+    });
+    app.get("/profile", function (req, res) {
+        res.render("profile");
+    });
+
 
     // POST route for new user
     app.post("/api/add", function (req, res) {
