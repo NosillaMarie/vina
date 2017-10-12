@@ -328,4 +328,3 @@ var questionNumber = 0;
         location.reload();
       });
     }
-
