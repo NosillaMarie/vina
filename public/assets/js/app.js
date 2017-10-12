@@ -76,3 +76,11 @@ $(document).ready(function () {
     });
 
 });
+
+var user = firebase.auth().currentUser;
+var uid, email;
+
+if (user != null) {
+    email = user.email;
+    uid = user.uid;
+}
