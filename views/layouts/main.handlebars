@@ -148,12 +148,42 @@
                                         </form>
                                     </div>
                                     <div class="bottom text-center">
-                                        New here ? <a href="#"><b>Join Us</b></a>
+                                        New here ? <a data-toggle="modal" data-target="#exampleModal" href="#"><b>Join Us</b></a>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </li>
+                    <!--                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>-->
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel" style="text align: center">Register for your Movie Matches</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email:</label>
+                                            <input class="form-control" type="email" id="txtEmail" placeholder="Email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label">Password:</label>
+                                            <input class="form-control" type="password" id="txtPassword" placeholder="Password">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                    <button type="button" id="btnSignUp" class="btn btn-primary btn-sm">Save & Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
