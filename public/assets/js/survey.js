@@ -353,8 +353,10 @@ function createUser() {
         uid: uid
     };
     $.post("/api/add", newUser)
-        .done(function () {
-//            location.reload();
+        .done(function (data) {
+           console.log(data);
+           var userRoute = "/" + data.id;
+           window.location.href = userRoute;
         });
 }
 

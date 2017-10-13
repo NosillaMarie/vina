@@ -28,9 +28,8 @@
 
         const promise = auth.signInWithEmailAndPassword(email, pass);
 
-
-
         promise.catch(e => console.log(e.message));
+
     });
 
     btnSignUp.addEventListener('click', e => {
@@ -43,7 +42,8 @@
             .then(
                 function () {
                     window.location.href = "/survey";
-                });
+            });
+            
         $('#exampleModal .close').click();
 
         promise.catch(e => console.log(e.message));
@@ -54,12 +54,15 @@
 
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
+        window.location.href = "/";
     });
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
             btnLogout.classList.remove('hide');
+            var userRoute = "/" + firebaseUser.uid;
+            window.location.href = userRoute;
         } else {
             console.log("Not Logged In");
             btnLogout.classList.add('hide');

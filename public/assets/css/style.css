@@ -105,6 +105,11 @@ footer {
     margin-bottom: 10px;
 }
 
+#profilePosters {
+    width: 200px;
+    height: auto;
+}
+
 @media(max-width:768px) {
     #login-dp {
         background-color: inherit;
