@@ -355,7 +355,7 @@ function createUser() {
     $.post("/api/add", newUser)
         .done(function (data) {
            console.log(data);
-           var userRoute = "/" + data.id;
+           var userRoute = "/new/" + data.id;
            window.location.href = userRoute;
         });
 }

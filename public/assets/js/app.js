@@ -22,33 +22,41 @@
 
     btnLogin.addEventListener('click', e => {
 
+        event.preventDefault();
+
         const email = logEmail.value;
         const pass = logPassword.value;
         const auth = firebase.auth();
 
-        const promise = auth.signInWithEmailAndPassword(email, pass);
+        const promise = auth.signInWithEmailAndPassword(email, pass)
 
-        promise.catch(e => console.log(e.message));
-
+        promise.catch(e => console.log(e.message))
+            .then(
+                function () {
+                    var user = firebase.auth().currentUser;
+                    var userRoute = "/current/" + user.uid;
+                    window.location.href = userRoute;
+            });
     });
 
+
     btnSignUp.addEventListener('click', e => {
+
+        event.preventDefault();
 
         const email = txtEmail.value;
         const pass = txtPassword.value;
         const auth = firebase.auth();
 
-        const promise = auth.createUserWithEmailAndPassword(email, pass)
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
+            
+        $('#exampleModal .close').click();
+
+        promise.catch(e => console.log(e.message))
             .then(
                 function () {
                     window.location.href = "/survey";
             });
-            
-        $('#exampleModal .close').click();
-
-        promise.catch(e => console.log(e.message));
-        console.log(email);
-
     });
 
 
@@ -61,8 +69,6 @@
         if (firebaseUser) {
             console.log(firebaseUser);
             btnLogout.classList.remove('hide');
-            var userRoute = "/" + firebaseUser.uid;
-            window.location.href = userRoute;
         } else {
             console.log("Not Logged In");
             btnLogout.classList.add('hide');

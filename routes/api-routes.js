@@ -30,10 +30,34 @@ module.exports = function (app) {
         });
 
     });
-       app.get("/:id", function (req, res) {
+
+      //GET route for MYQL id (when new user is created)
+       app.get("/new/:id", function (req, res) {
            db.Users.findOne({
                    where: {
                        id: req.params.id
+                   }
+               })
+               .then(function (result) {
+    
+                   var topGenre = result.topGenre;
+                   var today = moment().format('YYYY-MM-DD');
+                   var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3d866c05691ba06f9fa697f8e8c9e838&language=en-US&region=US&sort_by=release_date.asc&include_video=false&page=1&primary_release_date.gte=" + today + "&with_genres=" + topGenre;
+
+
+                   request(queryURL, function (error, response, body) {
+                      console.log('error:', error); // Print the error if one occurred
+                      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+                      res.render("profile", JSON.parse(body));
+                    });
+               });
+       });
+
+      //GET route for FB id (when existing user logs in)
+       app.get("/current/:uid", function (req, res) {
+           db.Users.findOne({
+                   where: {
+                       uid: req.params.uid
                    }
                })
                .then(function (result) {
