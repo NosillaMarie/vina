@@ -1,6 +1,22 @@
 body {
     background-color: #000000;
+    color: #fff;
 }
+
+a.navbar-brand:link {
+    font-size: 42px;
+    color: #fff;
+}
+a.navbar-brand:visited {
+    color: #fff;
+}
+a.navbar-brand:hover {
+    color: #fff;
+}
+.slogan {
+    font-size: 14px;
+}
+
 .small-top .date-sec {
     font-size: 13px;
     font-weight: 600;
