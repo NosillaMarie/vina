@@ -59,10 +59,10 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         Please Login
-                                        <form class="form" role="form" method="GET" action="/survey" accept-charset="UTF-8" id="login-nav">
+                                        <form class="form" role="form" method="POST" action="/api/find" accept-charset="UTF-8" id="login-nav">
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                                <input type="email" class="form-control" id="logEmail" placeholder="Email address" required>
+                                                <input type="email" class="form-control" id="logEmail" placeholder="Email address" name="email" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
@@ -98,7 +98,7 @@
         </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form class="form" role="form" method="POST" action="/survey" accept-charset="UTF-8" id="login-nav">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Email:</label>
                                             <input class="form-control" type="email" id="txtEmail" placeholder="Email" />
@@ -141,6 +141,8 @@
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/survey.js"></script>
+
 </body>
 
 </html>

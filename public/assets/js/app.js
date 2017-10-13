@@ -28,6 +28,8 @@
 
         const promise = auth.signInWithEmailAndPassword(email, pass);
 
+
+
         promise.catch(e => console.log(e.message));
     });
 
@@ -37,15 +39,18 @@
         const pass = txtPassword.value;
         const auth = firebase.auth();
 
-        const promise = auth.createUserWithEmailAndPassword(email, pass);
-
-
+        const promise = auth.createUserWithEmailAndPassword(email, pass)
+            .then(
+                function () {
+                    window.location.href = "/survey";
+                });
         $('#exampleModal .close').click();
-
 
         promise.catch(e => console.log(e.message));
         console.log(email);
+
     });
+
 
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
@@ -76,7 +81,7 @@ $(document).ready(function () {
         var movies = response.results;
         for (i = 0; i < 10; i++) {
             imgIDs[i].attr("src", "https://image.tmdb.org/t/p/w640" + movies[i].poster_path);
-        };
+        }
 
     });
 
