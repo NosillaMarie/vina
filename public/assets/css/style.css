@@ -105,9 +105,13 @@ footer {
     margin-bottom: 10px;
 }
 
-#profilePosters {
+.profilePosters {
     width: 200px;
     height: auto;
+}
+
+#sendEmailBtn {
+    display: block;
 }
 
 @media(max-width:768px) {

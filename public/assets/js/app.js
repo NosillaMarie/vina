@@ -103,3 +103,21 @@ if (user !== null) {
     email = user.email;
     uid = user.uid;
 }
+    
+    $("#sendEmailBtn").on("click", function() {
+
+            event.preventDefault();
+
+            var user = firebase.auth().currentUser;
+
+            var userInfo = {
+                email: user.email
+            }
+              
+              $.post("/email", userInfo)
+              .done(function() {
+                alert('Movies Emailed!')
+
+              });
+
+    });
