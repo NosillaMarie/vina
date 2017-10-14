@@ -1,6 +1,11 @@
 <h1 id="profileHeading">Your Movie Matches:</h1>
+
+<button class="btn btn-success" id="sendEmailBtn">EMAIL MOVIES!</button>
+
+<br>
+
 {{#each results}}
 
-<img style="width: 200px; height: auto;" id="profilePosters" src="https://image.tmdb.org/t/p/w640{{this.poster_path}}">
+<img class="profilePosters" src="https://image.tmdb.org/t/p/w640{{this.poster_path}}">
 
 {{/each}}

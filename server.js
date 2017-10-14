@@ -4,7 +4,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var moment = require('moment');
-var request = require('request')
+var request = require('request');
+var nodemailer = require('nodemailer');
+var path = require('path');
 
 // Sets up the Express App
 // =============================================================
@@ -25,8 +27,8 @@ app.use(bodyParser.json({
 }));
 
 // Static directory
-app.use(express.static("public"));
-//app.use(express.static(path.join(__dirname, '/public')));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(bodyParser.urlencoded({
     extended: false
